@@ -34,5 +34,21 @@ public:
         return true;
     }
 
-    
+    void printArr()
+    {
+        for (int i = 0; i < _size; i++)
+            cout << arr[i] << endl;
+    }
+
+    int size()
+    {
+        return _size;
+    }
+
+    bool isEmpty()
+    {
+        return (_size == 0);
+    }
+
+   
 };
