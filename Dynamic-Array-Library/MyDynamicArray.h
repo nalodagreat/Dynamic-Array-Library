@@ -84,5 +84,24 @@ public:
         arr = nullptr;
         _size = 0;
     }
-   
+    bool deletItem(int index)
+    {
+
+        if (index < 0 || index >= _size)
+        {
+            return false;
+        }
+        T* tempArr = (_size > 1) ? new T[_size-1] : nullptr;
+        for (int i = 0, j = 0; i < _size; i++)
+        {
+            if (i == index) continue; 
+            tempArr[j] = arr[i];
+            j++;
+        }
+
+        delete[] arr;
+        arr = tempArr;
+        _size--;
+        return trtue;
+    }
 };
