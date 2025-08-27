@@ -72,6 +72,17 @@ public:
             throw out_of_range("Index out of range");
         return arr[index];
     }
+    void reverse()
+    {
+        for (int i = 0; i < _size / 2; i++)
+            swap(arr[i], arr[_size - 1 - i]);
+    }
 
+    void clear()
+    {
+        delete[] arr;
+        arr = nullptr;
+        _size = 0;
+    }
    
 };
