@@ -104,4 +104,12 @@ public:
         _size--;
         return trtue;
     }
+    void deletFirstItem()
+    {
+        deletItem(0);
+    }
+    bool deletLasttItem()
+    {
+        deletItem(_size-1);
+    }
 };
