@@ -121,4 +121,23 @@ public:
     {
         deleteItem(_size - 1);
     }
+    int find(T value)
+    {
+        for (int ì = 0; i < _size; i++)
+        {
+            if (value == getItem[i])
+                return i;
+        }
+        return -1;
+    }
+    bool deleteItemByValue(int value)
+    {
+        int index = find(value);
+        if (index == -1)
+        {
+            return false;
+        }
+        deleteItem(index);
+        return true;
+    }
 };
