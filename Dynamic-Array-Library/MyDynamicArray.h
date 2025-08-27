@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 template <class T>
@@ -25,14 +26,17 @@ public:
         delete[] arr;
     }
 
-    bool setArray(int index, T value)
+    bool setArray(int index, T value) 
     {
-        if (index < 0 || index >= _size)
+        if (index < 0)
             return false;
-
+        if (index >= _size) {
+            resize(index + 1);
+        }
         arr[index] = value;
         return true;
     }
+
 
     void printArr()
     {
@@ -72,6 +76,7 @@ public:
             throw out_of_range("Index out of range");
         return arr[index];
     }
+
     void reverse()
     {
         for (int i = 0; i < _size / 2; i++)
@@ -81,35 +86,39 @@ public:
     void clear()
     {
         delete[] arr;
-        arr = nullptr;
+        arr = new T[0];
         _size = 0;
     }
-    bool deletItem(int index)
+    bool deleteItem(int index)
     {
-
         if (index < 0 || index >= _size)
-        {
             return false;
+
+        if (_size == 1) {
+            delete[] arr;
+            arr = nullptr;
+            _size = 0;
+            return true;
         }
-        T* tempArr = (_size > 1) ? new T[_size-1] : nullptr;
-        for (int i = 0, j = 0; i < _size; i++)
-        {
-            if (i == index) continue; 
-            tempArr[j] = arr[i];
-            j++;
+
+        T* tempArr = new T[_size - 1];
+        for (int i = 0, j = 0; i < _size; i++) {
+            if (i == index) continue;
+            tempArr[j++] = arr[i];
         }
 
         delete[] arr;
         arr = tempArr;
         _size--;
-        return trtue;
+        return true;
     }
+
     void deletFirstItem()
     {
         deletItem(0);
     }
-    bool deletLasttItem()
+    void deleteLastItem()
     {
-        deletItem(_size-1);
+        deleteItem(_size - 1);
     }
 };
