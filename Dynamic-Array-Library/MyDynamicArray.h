@@ -188,6 +188,25 @@ public:
         _size++;
 
     }
+    void insertBeforeIndex(int index, T value)
+    {
+        //1-2-3  | 1-500-2-3
+        if (index < 0 || index >= _size)
+            return;
+        if (index <= 1)
+            insertAtbegining(value);
+        else
+            insertAt(index - 2, value);
+    }
+    void insertAfter(int index, T value)
+    {
+        //1-2-3  | 1-500-2-3
+        if (index < 0 || index >= _size)
+            return;
+        insertAt(index, value);
+    }
+   
+
     
 
 };
