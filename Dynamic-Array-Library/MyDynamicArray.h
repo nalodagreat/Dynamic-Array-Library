@@ -205,7 +205,13 @@ public:
             return;
         insertAt(index, value);
     }
-   
+    void insertAtEnd(T value)
+    {
+        if (_size == 0)
+            insertAtbegining(value);
+        else
+            insertAt(_size - 1, value);
+    }
 
     
 
