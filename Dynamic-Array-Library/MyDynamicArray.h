@@ -212,10 +212,7 @@ public:
         else
             insertAt(_size - 1, value);
     }
-    bool isEmpty()
-    {
-        (_size == 0);
-    }
+    
     
 
 };
