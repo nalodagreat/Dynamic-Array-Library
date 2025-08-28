@@ -50,5 +50,8 @@ public:
 	{
 		_list.setArray(index, newValue);
 	}
-
+	void insertAtbegining(T value)
+	{
+		_list.insertAtbegining(value);
+	}
 };
