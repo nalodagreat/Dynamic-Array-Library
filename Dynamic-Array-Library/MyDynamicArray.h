@@ -115,7 +115,7 @@ public:
 
     void deletFirstItem()
     {
-        deletItem(0);
+        deleteItem(0);
     }
     void deleteLastItem()
     {
@@ -123,7 +123,7 @@ public:
     }
     int find(T value)
     {
-        for (int ì = 0; i < _size; i++)
+        for (int i = 0;i < _size; i++)
         {
             if (value == getItem(i))
                 return i;
@@ -212,7 +212,10 @@ public:
         else
             insertAt(_size - 1, value);
     }
-
+    bool isEmpty()
+    {
+        (_size == 0);
+    }
     
 
 };
