@@ -125,7 +125,7 @@ public:
     {
         for (int ì = 0; i < _size; i++)
         {
-            if (value == getItem[i])
+            if (value == getItem(i))
                 return i;
         }
         return -1;
@@ -140,4 +140,54 @@ public:
         deleteItem(index);
         return true;
     }
+    void insertAt(int index, T value)
+    {
+        //1-2-3-4 |1-2-500-3-4
+       
+        if (index < 0 || index >= _size) 
+              return;
+       
+        T* tempArr = new T[_size+1];
+        for (int i = 0, j = 0; i < _size+1; i++)
+        {
+            if (i == index+1)
+            {
+                tempArr[i] = value;
+
+            }
+            else
+            {
+                tempArr[i] = arr[j];
+                j++;
+            }
+        }
+
+        delete[] arr;
+        arr = tempArr;
+        _size++;
+    }
+    void insertAtbegining(T value)
+    {
+        T* tempArr = new T[_size + 1];
+        for (int i = 0, j = 0; i < _size + 1; i++)
+        {
+            if (i == 0)
+            {
+                tempArr[i] = value;
+
+            }
+            else
+            {
+                tempArr[i] = arr[j];
+                j++;
+            }
+        }
+
+        delete[] arr;
+        arr = tempArr;
+        _size++;
+
+    }
+    
+
 };
